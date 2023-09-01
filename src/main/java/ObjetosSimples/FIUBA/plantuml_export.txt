@@ -1,0 +1,49 @@
+@startuml
+!theme toy
+
+skin rose
+
+title Classes - Class Diagram
+
+
+class Facultad {
+}
+
+class Carrera {
+  -Int minimosCreditos
+  
+  +cumpleObligatorias([]Materia materiasDeAlumno): bool
+  +cumpleCreditos(int creditosAlumno): bool
+}
+
+class Materia {
+  -Int codigo
+  -String nombre
+  -Int creditos
+  
+  +obtenerCreditos(): int
+  
+  
+}
+
+class Alumno {
+  -Int creditos
+
+  
+  +obtenerAprobadas(): []Materia
+  +obtenerCreditos():[]Materia
+  +anotarseMateria(Materia materia)
+  +aprobarMateria(Materia materia)
+}
+
+Facultad -down-> Carrera: -[]Carrera carreras
+Facultad -right-> Alumno: -Set<Alumno> alumnos
+
+Carrera -> Materia: -[]Materia materiasObli
+Carrera -> Materia: -[]Materia materiasOpt
+
+Alumno --> Materia: -[]Materia materiasAnotadas
+Alumno --> Materia: -[]Materia materiasAprobadas
+Alumno --> Carrera: -[]Carrera carrerasAnotadas
+
+@enduml
