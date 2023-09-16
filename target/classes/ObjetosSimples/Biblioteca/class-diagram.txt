@@ -1,0 +1,41 @@
+@startuml
+!theme vibrant
+
+skin rose
+
+title Relationships - Class Diagram
+
+class Biblioteca {
+  + AgregarLibroAColeccion(Libro): void
+  + QuitarLibroDeColeccion(string id): void
+  + PrestarLibro(string idCliente, string idLibro): bool
+  + DevolverLibro(string idLibro): bool
+  +StockTitulo(string titulo):  List<Libro> 
+  +StockFecha(string fecha):  List<Libro> 
+  +StockTitulo(string autor):  List<Libro> 
+  +BuscarCliente(string idCliente): Cliente
+}
+
+Biblioteca "1" o--> "*" Libro: List<Libro> libros
+Biblioteca "1" o--> "*" Cliente: List<Cliente> clientes
+
+class Libro {
+  -string idUsuarioPrestado
+  -string idInternoLibro
+  -string isbn
+  -string titulo
+  -string fecha
+  -string autores
+  +prestar(string idUs): void
+  +devolver(): void
+}
+
+class Cliente {
+  -string nombre
+  -string id
+  +ConsultarPrestados(): List<Libro>
+}
+
+Cliente "1" o--> "*" Libro: List<Libro> librosPrestados
+
+@enduml
