@@ -1,0 +1,31 @@
+@startuml
+
+skin rose
+
+title Polimorfismo Figuras
+
+class Figura {
+  +double Area()
+}
+
+class Circulo {
+  -double radio;
+  +double Area()
+}
+Circulo ..|> Figura: Realizacion
+
+class Cuadrado {
+  -double lado;
+  +double Area()
+}
+Cuadrado ..|> Figura: Realizacion
+
+class Rectangulo {
+  -double ladoA;
+  -double ladoB;
+  +double Area()
+}
+Rectangulo ..|> Figura: Realizacion
+
+
+@enduml
