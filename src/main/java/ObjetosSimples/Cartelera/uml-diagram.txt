@@ -1,0 +1,44 @@
+@startuml
+!theme vibrant
+
+skin rose
+
+title Relationships - Class Diagram
+
+class Sistema {
+  -Map<remitente, id> remitentes
+  -Map<destino, id> destinatarios
+  -Map<id, Mensaje> mensajes
+  +obtenerMensajes(string huesped)
+  +
+}
+
+class Sesion {
+  -Huesped huesped
+  -[]Mensaje recibidos
+  -[]Mensaje enviados
+}
+
+class Mensaje {
+  -string id
+  -string contenido
+}
+
+class Huesped {
+  -string nombre
+  
+  +verEnviados(): []Mensaje
+  +verRecibidos(): []Mensaje
+  +enviarMensaje(string contenido, string destinatario): 
+  +cerrarSesion()
+}
+
+
+
+Dwelling <|-down- Apartment: Inheritance
+Dwelling <|-down- Commune: Inheritance
+Dwelling <|-down- House: Inheritance
+Dwelling "1" *-up- "many" Window: Composition
+Dwelling "1" *-up- "many" Door: Composition
+
+@enduml

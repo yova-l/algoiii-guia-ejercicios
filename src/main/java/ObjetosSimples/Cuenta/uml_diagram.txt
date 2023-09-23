@@ -1,0 +1,44 @@
+// REPLANTEAR MIRAR SOLUCION...
+
+@startuml
+!theme vibrant
+
+skin rose
+
+title Cuenta de ahorros
+
+
+class Banco {
+  <<create>> construir()
+  +aniadirCliente(String nombre)
+  +transferir(Usuario origen, Usuario destino, int monto)
+}
+
+Banco "1" o-up-> "*" Usuario: -Map<int id,Usuario> usuarios
+Banco "1" o-> "*" Caja: -Map<int id, Caja> cajas 
+
+class Usuario {
+  <<create>> construir(Caja caja)
+  -string nombre
+  -string alias
+  -string cbu
+  +calcularInteres(int monto): int saldoSimulado
+  +transferir(Usuario destinatario, int monto)
+}
+
+Usuario "1" *--> "1" Caja: -Caja caja
+
+
+class Caja {
+  <<create>> construir()
+  -int fondosCongelados
+  -int saldoDisponible
+  +consultarSaldo(): int
+  +simularPzoFijo(int monto): int
+  +depositarFondos(int monto)
+  +retirarFondos(int monto)
+  +crearPzoFijo(int monto)
+  
+}
+
+@enduml
