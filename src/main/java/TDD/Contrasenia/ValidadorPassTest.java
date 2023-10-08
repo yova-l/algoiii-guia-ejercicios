@@ -37,4 +37,6 @@ public class ValidadorPassTest {
         assertEquals(res.mensaje(), mensaje);
         assertFalse(res.estado());
     }
+
+    // PASO DE LOS DEMAS TEST...
 }

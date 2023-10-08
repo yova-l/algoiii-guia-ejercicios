@@ -22,8 +22,24 @@ public class ValidadorPass {
         return cantNums >= 2;
     }
 
-    // faltan dos checkeos y todos sus test...
+    private static boolean tieneAlMenosUnaMayus(String password) {
+        for (char caracter : password.toCharArray() ) {
+            if (Character.isUpperCase(caracter)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
+    private static boolean tieneAlMenosUnEspecial(String password) {
+        for (char caracter : password.toCharArray() ) {
+            if (!Character.isLetterOrDigit(caracter)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public static Resultado validar(String password) {
         String mensajes;
         boolean cumple = true;
@@ -38,6 +54,15 @@ public class ValidadorPass {
             cumple = false;
         }
 
+        if (!tieneAlMenosUnEspecial(password)) {
+            mensajes.concat("La contraseña debe contener al menos un carácter especial\n");
+            cumple = false;
+        }
+
+        if (!tieneAlMenosUnaMayus(password)) {
+            mensajes.concat("La contraseña debe contener al menos una letra mayúscula\n");
+            cumple = false;
+        }
 
         return new Resultado(cumple, mensajes);
     }
