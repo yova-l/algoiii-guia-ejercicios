@@ -1,0 +1,26 @@
+@startuml
+!theme plain
+
+skin rose
+
+title Relationships - Class Diagram
+
+class FIUBA {
+  -String ultimoLegajoAl
+  -String ultimoLegajoDoc
+  -Dict<Dni, IntegranteFiuba> integrantes
+  +anotarIntegrante(IntegranteFiuba)
+  +obtenerAlumnos()
+  +obtenerDocentes()
+}
+FIUBA "1" o--> IntegranteFiuba
+
+class IntegranteFiuba {
+  -String nombre
+  -String dni
+  -boolean esAlumno
+  +<<create>> construir(nombre, dni, esAlumno)
+  +getters()
+}
+
+@enduml
