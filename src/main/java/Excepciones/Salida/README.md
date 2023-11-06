@@ -2,6 +2,7 @@ Indicar *exactamente* cuál es la salida producida al ejecutar cada uno de los s
 
 ---
 
+* a) 
 ```java
 class Uno {
     public static void main (String[] args) {
@@ -18,7 +19,7 @@ class Uno {
 ```
 
 ---
-
+* b)
 ```java
 class Dos {
     public static void main (String[] args) {
@@ -37,7 +38,7 @@ class Dos {
 ```
 
 ---
-
+* c)
 ```java
 class Tres {
     public static void main (String[] args) {
@@ -54,7 +55,7 @@ class Tres {
 ```
 
 ---
-
+* d)
 ```java
 class Cuatro {
     public static void main (String[] args) {
@@ -73,7 +74,7 @@ class Cuatro {
 ```
 
 ---
-
+* e)
 ```java
 class Cinco {
     public static void main (String[] args) {
@@ -90,7 +91,7 @@ class Cinco {
 ```
 
 ---
-
+* f)
 ```java
 class Seis {
     public static void main (String[] args) {
@@ -109,7 +110,7 @@ class Seis {
 ```
 
 ---
-
+* g)
 ```java
 class Siete {
     public static void main (String[] args) {
@@ -126,7 +127,7 @@ class Siete {
 ```
 
 ---
-
+* h)
 ```java
 class Ocho {
     public static void main (String[] args) {
